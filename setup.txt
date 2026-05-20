@@ -1,0 +1,18 @@
+Alle aktuellen Eclipse-Dowloads unter https://mirror.umd.edu/eclipse/technology/epp/downloads/release/
+Konkret fürs Praktikum:
+https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2025-12/R/eclipse-dsl-2025-12-R-win32-x86_64.zip
+(Dort liegen auch die Linux- und MacOS-Dateien)
+
+Erster Ansatz (funktioniert nicht)
+==================================
+Über Help/Eclipse Marketplace 
+-Papyrus SysML 1.6
+-Papyrus Designer
+installiert. Papyrus hat Bug, Parameter für Operationen können nur über Umweg eingestellt werden.
+
+Zweiter Ansatz
+==============
+Über Help/Install new Software
+Papyrus installiert von https://download.eclipse.org/modeling/mdt/papyrus/papyrus-desktop/updates/nightly/master/
+Über Help/Eclipse Marketplace Papyrus Designer installiert.
+--> Funktioniert. Beim Generieren von Javacode aus UML beim generierten Projekt Default JRE wählen!
