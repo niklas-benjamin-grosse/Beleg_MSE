@@ -1,0 +1,9 @@
+grammar e.htwdd.sf.beleg.Lang with org.eclipse.xtext.common.Terminals
+
+generate lang "http://www.htwdd.e/sf/beleg/Lang"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.htwdd.sf.beleg.s86379s87568.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: de.htwdd.sf.beleg.s86379s87568.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.htwdd.sf.beleg.s86379s87568.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.htwdd.sf.beleg.s86379s87568,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.41.0"
+Import-Package: org.junit.jupiter.api;version="[5.1.0,6.0.0)",
+ org.junit.jupiter.api.extension;version="[5.1.0,6.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: e.htwdd.sf.beleg.tests;x-internal=true

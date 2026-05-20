@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Initial configuration</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_initial_configuration">Initial configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On Linux and macOS hosts, the LLVM toolchain will typically be installed via the package
+management tool provided by the Linux distribution or as part of the
+<em>Xcode Command Line Tools</em> and will be located on the system <code>PATH</code>.
+If your LLVM toolchain is not on the system <code>PATH</code> when launching the Eclipse Workbench,
+you may need to add the location of your LLVM binaries to the <code>PATH</code> environment variable
+within Eclipse. This is done by navigating to Window &#8594; Preferences &#8594;
+C/C&#43;&#43; &#8594; Build &#8594; Environment. Select the <code>PATH</code> environment variable and then edit its
+value to point where your LLVM binaries are located.</p>
+</div>
+<div class="paragraph">
+<p>If your <code>PATH</code> environment variable is set correctly, you should see the
+<em>LLVM with Clang</em> and <em>LLVM with GCC</em> toolchains available for selection within the
+CDT project wizard for managed build projects. The toolchains are available for both
+C and C&#43;&#43; projects.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Clang is automatically detected when installed on a Microsoft Windows host using
+the MSYS2 package manager. It is not necessary to modify the <code>PATH</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

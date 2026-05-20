@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Using existing code</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_using_existing_code">Using existing code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to create a new Core Build System
+(CBS) project for use with existing code.</p>
+</div>
+<div class="paragraph">
+<p>Using existing code is done by creating a new <strong>empty</strong> CDT project in
+the top directory containing the existing source files. CDT project
+files will be created in the existing source directory.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_an_existing_cmake_project">Using an existing CMake project</h3>
+<div class="paragraph">
+<p>To create an empty CMake project in CDT select the template <strong>Empty or Existing CMake
+Project</strong> in the <strong>New C/C&#43;&#43; Project</strong> wizard.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_empty_cmake_project.png" alt="Empty or Existing CMake Project"></span></p>
+</div>
+<div class="paragraph">
+<p>In the <strong>New CMake Project</strong> wizard uncheck <strong>Use default location</strong>
+and set the location of the existing code.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_existing_code_cmake.png" alt="Existing code CMake"></span></p>
+</div>
+<div class="paragraph">
+<p>More information about creating a CMake project is described in
+<a href="new_cmake_proj.htm">Creating a CMake project</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_an_existing_makefile_project">Using an existing Makefile project</h3>
+<div class="paragraph">
+<p>Create a CBS Makefile project in CDT as described in
+<a href="new_cbs_makefile_proj.htm">Creating a Core Build System Makefile project</a>
+with the following changes:</p>
+</div>
+<div class="paragraph">
+<p>In the <strong>New Makefile Project</strong> wizard uncheck <strong>Use default location</strong>,
+set the location of the existing code, and uncheck <strong>Create Hello
+World Source and Makefile example</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_existing_code_makefile.png" alt="Existing code Makefile"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="icon"><i class="fa fa-arrow-circle-right"></i></span> <a href="cbs_launchbar.htm">Next: Using the Launch Bar</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

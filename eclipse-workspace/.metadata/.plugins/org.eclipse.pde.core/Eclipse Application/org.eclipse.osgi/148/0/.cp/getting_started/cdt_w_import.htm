@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Tutorial: Importing an existing project</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_tutorial_importing_an_existing_project">Tutorial: Importing an existing project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following tutorial takes you though the process of importing a
+'legacy' application using the CDT.</p>
+</div>
+<div class="paragraph">
+<p>Step 1: You want to create a single project that will reflect all of the
+components for the existing source tree.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select <strong>File &gt; New &gt; Project</strong>.</p>
+</li>
+<li>
+<p>For this tutorial, expand <strong>C/C&#43;&#43;</strong> and select <strong>C&#43;&#43; project</strong>.</p>
+<div class="paragraph">
+<p>The <strong>New Project</strong> wizard displays.<br>
+<span class="image"><img src="../images/cdt_w_import02.png" alt="cdt w import02"></span></p>
+</div>
+</li>
+<li>
+<p>In the <strong>Project name</strong> field, type a name for the project.</p>
+</li>
+<li>
+<p>Ensure that the <strong>Use default location</strong> option is not selected because
+here we will specify where the resources reside in the file system, in a
+location other than your workspace.
+We assume this directory location already exists, and contains e.g.
+source files and makefile. If it does not exist, it will be created.</p>
+<div class="paragraph">
+<p>In this example, we will use an existing <code>hello.cpp</code> and its existing
+<code>hello.mak</code> makefile, located in the directory <code>c:\brandon</code>.<br>
+<span class="image"><img src="../images/cdt_w_importBrandon01.png" alt="cdt w importBrandon01"></span></p>
+</div>
+</li>
+<li>
+<p>In the <strong>Location</strong> field, specify the path to the existing files for
+your project.</p>
+</li>
+<li>
+<p>From the <strong>Project types</strong> list, expand <strong>Makefile Project</strong> and select
+<strong>Empty Project.</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To have sample source and a makefile created in your existing
+directory, select <strong>Hello World C&#43;&#43; Project</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Make sure a toolchain is selected.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>(Optional) On the <strong>Select Configurations</strong> page, select only the
+configurations you want created. Configurations display for each
+toolchain selected on the previous page of the wizard.</p>
+</li>
+<li>
+<p>Click <strong>Finish</strong> to close the dialog box.</p>
+<div class="paragraph">
+<p>You will see the new project in the Project Explorer view. In addition,
+new 'dot' files have been created in your legacy project&#8217;s root
+directory, these are CDT project files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Optional) To see these "hidden" files, open the view menu on the
+Project explorer view, and select "Customize View."
+The view menu is activated via the small downward-pointing triangle in
+the upper right of the toolbar of the view.<br>
+<span class="image"><img src="../images/cdt_w_viewMenu.png" alt="cdt w viewMenu"></span></p>
+</li>
+<li>
+<p>In the <strong>Available Customizations</strong> window, on the <strong>Filters</strong> tab,
+uncheck ".* resources."<br>
+<span class="image"><img src="../images/cdt_w_viewMenuFilters.png" alt="cdt w viewMenuFilters"></span></p>
+</li>
+<li>
+<p>The formerly hidden 'dot' files are now shown in the <strong>Project
+Explorer</strong>.<br>
+<span class="image"><img src="../images/cdt_w_viewMenuFilters2.png" alt="cdt w viewMenuFilters2"></span></p>
+</li>
+<li>
+<p>Hit <strong>OK</strong> to close the dialog.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2: You are now ready to build your project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To build your project, select <strong>Project</strong> &gt; <strong>Build Project</strong>.
+You can also hit the hammer icon <span class="image"><img src="../images/hammer-icon.png" alt="build icon"></span> on the toolbar to build the selected project.</p>
+</li>
+<li>
+<p>You may see an error e.g. make: *** no rule to make target 'all'.</p>
+<div class="paragraph">
+<p>This is because, in our case, we didn&#8217;t tell it where the makefile is,
+or its name.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the project properties (right mouse on project name in the
+<strong>Project Explorer</strong> view and select <strong>Properties</strong> at the bottom on the
+context menu).</p>
+</li>
+<li>
+<p>On the C/C&#43;&#43; Build Page, on its <strong>Builder Settings</strong> tab, uncheck ''Use
+default build command'' and change the <code>make</code> command to
+<code>make -f hello.mak</code> since our makefile is not named the default
+<code>makefile</code>.<br>
+<span class="image"><img src="../images/cdt_w_importBrandon02.png" alt="cdt w importBrandon02"></span></p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to close the <strong>Project Properties</strong> window.</p>
+</li>
+<li>
+<p>Your project will probably rebuild. If not you can force a build via
+<strong>Project</strong> &gt; <strong>Build Project</strong> or use the hammer icon
+<span class="image"><img src="../images/hammer-icon.png" alt="build icon"></span>.</p>
+<div class="paragraph">
+<p>After the project build completes, the results display in the <strong>Console</strong>
+view and new objects, such as binaries and includes, show in the
+<strong>Project Explorer</strong> view.<br>
+<span class="image"><img src="../images/cdt_w_importBrandon03.png" alt="cdt w importBrandon03"></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review the results to ensure that there are no errors.</p>
+<div class="paragraph">
+<p><strong>Note:</strong> By default, the indexer is set to <strong>Fast indexer</strong> for the project
+to parse your project in the same way that a compiler does; beginning
+with each compilation unit and parsing that file and all files that it
+includes, except that it parses each header file included in a project
+only once. This method provides the most accurate index information. For
+large projects using complex C&#43;&#43; code, this indexer can be slow. For
+example, if a header file is included and takes two compilation units,
+the parsing of the second unit reuses the results of parsing the first
+unit. This is similar to how precompiled headers work. The indexing of
+large projects using the Fast indexer uses fewer resources than the Full
+indexer, but the resulting index is not quite as accurate.
+To change indexer settings, bring up the Indexer page in the Project
+Properties.<br>
+<span class="image"><img src="../images/cdt_w_indexer.png" alt="cdt w indexer"></span></p>
+</div>
+<div class="paragraph">
+<p>Step 3: You are now ready to run your application.</p>
+</div>
+</li>
+<li>
+<p>To run your application within the C/C&#43;&#43; Perspective, click <strong>Run &gt; Run
+Configurations&#8230;&#8203;</strong></p>
+<div class="paragraph">
+<p>The <strong>Run Configurations</strong> dialog displays.</p>
+</div>
+</li>
+<li>
+<p>To create a run configuration, select <strong>C/C&#43;&#43; Application</strong> and click
+the <strong>New</strong> icon.</p>
+</li>
+<li>
+<p>Give your run configuration a name by entering a new name in the
+<strong>Name</strong> field at the top.</p>
+</li>
+<li>
+<p>On the <strong>Main</strong> tab, select the project by clicking <strong>Browse</strong> opposite
+the <strong>Project</strong> field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>From the Project Selection window, select the project and click <strong>OK</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Select the new <strong>C/C&#43;&#43; Application</strong> you want to execute by clicking
+<strong>Search</strong>.</p>
+<div class="paragraph">
+<p>In our case it didn&#8217;t find the file because it&#8217;s in a nonstandard
+location. Use the <strong>Browse</strong> button to select the executable. In our case
+also it&#8217;s a nonstandard name, <code>hello.e</code> because that&#8217;s what our makefile
+<code>hello.mak</code> built.<br>
+<span class="image"><img src="../images/cdt_w_importBrandon04run.png" alt="cdt w importBrandon04run"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you see the error <code>[Debugger]: No debugger available</code>, select the
+Debugger tab and choose a valid debugger for your platform (e.g.
+gdb/mi).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Run</strong> to save the run configuration and run it.<br>
+<span class="image"><img src="../images/cdt_w_importBrandon04run2.png" alt="cdt w importBrandon04run2"></span></p>
+<div class="paragraph">
+<p>The application runs in the <strong>Console</strong> view. The <strong>Console</strong> also shows
+which application it is currently running in the title bar. You can
+configure the view to display different elements, such as user input
+elements using different colors.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

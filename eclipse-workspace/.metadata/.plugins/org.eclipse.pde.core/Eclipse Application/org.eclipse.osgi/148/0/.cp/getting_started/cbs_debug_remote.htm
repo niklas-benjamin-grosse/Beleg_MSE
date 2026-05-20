@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Debugging a remote target</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_debugging_a_remote_target">Debugging a remote target</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Debugging a CBS project is done via the <a href="cbs_launchbar.htm">Launch Bar</a>. Make
+sure the launch bar is installed and enabled.</p>
+</div>
+<div class="paragraph">
+<p>A new remote target must be added to the launch bar.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select launch mode <strong>Debug</strong>.</p>
+</li>
+<li>
+<p>Unfold the launch target selector by pressing the "v" symbol.</p>
+</li>
+<li>
+<p>Select <strong>New Launch Target&#8230;&#8203;</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_new_debug_launchtarget.png" alt="Create new launch target"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_remote_tcp_target">Remote TCP target</h3>
+<div class="paragraph">
+<p>Select target type <strong>GDB Remote TCP</strong> and click <strong>Next &gt;</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_select_remote_tcp.png" alt="Select GDB Remote TCP"></span></p>
+</div>
+<div class="paragraph">
+<p>Enter the connection details, and click <strong>Finish</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_connection_tcp.png" alt="TCP connection details"></span></p>
+</div>
+<div class="paragraph">
+<p>When the remote target is selected in the launch bar, the launch
+configuration Debugger tab has an extra sub tab <strong>Connection</strong>.  The
+Connection tab inherited the values from launch target. The fields are
+disabled for editing. Changing host name or port number must be done
+in the launch target. Note that the launch target can be used for
+multiple launch configurations.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_launch_config_tcp.png" alt="Launch configuration debug tab TCP"></span></p>
+</div>
+<div class="paragraph">
+<p>Build and launch the project.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remote_serial_target">Remote Serial target</h3>
+<div class="paragraph">
+<p>Create a new launch target of type <strong>GDB Remote Serial</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_select_remote_serial.png" alt="Select GDB Remote Serial"></span></p>
+</div>
+<div class="paragraph">
+<p>Enter the connection details, and click <strong>Finish</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_connection_serial.png" alt="Serial connection details"></span></p>
+</div>
+<div class="paragraph">
+<p>As with a TCP remote target, in the launch configuration the
+the fields for the connection parameters are not editable.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_launch_config_serial.png" alt="Launch configuration debug tab Serial"></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

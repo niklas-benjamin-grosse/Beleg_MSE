@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Debugging a local target</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_debugging_a_local_target">Debugging a local target</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Debugging a CBS project is done via the <a href="cbs_launchbar.htm">Launch Bar</a>. Make
+sure the launch bar is installed and enabled.</p>
+</div>
+<div class="paragraph">
+<p>First build the project for Debug.
+See <a href="cbs_build_project.htm">Building a project</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the launch configuration of the project you want to run.</p>
+</li>
+<li>
+<p>Select launch mode <strong>Debug</strong>.</p>
+</li>
+<li>
+<p>Press the <strong>Debug</strong> button in the launch bar.</p>
+</li>
+<li>
+<p>Confirm the switch to the Debug Perspective.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_debug_cmake.png" alt="Launch a CMake project for Debug"></span></p>
+</div>
+<div class="paragraph">
+<p>The Perspective will change to <strong>Debug</strong>, and you can start debugging.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_debugging.png" alt="Debugging a CMake project"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_changing_debug_settings">Changing debug settings</h3>
+<div class="paragraph">
+<p>To change debug settings:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the launch mode to <strong>Debug</strong></p>
+</li>
+<li>
+<p>Edit the project&#8217;s launch configuration. Click on the gear icon.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_edit_launch_config_debug.png" alt="Edit launch configuration"></span></p>
+</div>
+<div class="paragraph">
+<p>The edit launch configuration wizard will open. Notice that there are
+now two extra tabs <strong>Debugger</strong> and <strong>Source</strong>, because the launch mode is
+<strong>Debug</strong>. These are not present in launch mode <strong>Run</strong>.</p>
+</div>
+<div class="paragraph">
+<p>On the <strong>Main</strong> tab you can set an alternative C/C++ application, and
+you can enable or disable build before launch.</p>
+</div>
+<div class="paragraph">
+<p>On the <strong>Arguments</strong> tab you specify optional arguments, and you can
+change the working directory.</p>
+</div>
+<div class="paragraph">
+<p>On the <strong>Environment</strong> tab you define optional environment variables.</p>
+</div>
+<div class="paragraph">
+<p>On the <strong>Debugger</strong> tab you can set an alternative debugger. If the
+debugger name is not an absolute path, CDT will look first for the
+debugger in the selected toolchain in the <strong>Build Settings</strong> tab. When
+it is not found in the toolchain the debugger is searched in the
+<strong>PATH</strong> environment variable defined locations.</p>
+</div>
+<div class="paragraph">
+<p>On the <strong>Source</strong> tab extra paths outside the project folder can be
+defined to look for source code.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cbs_launch_config_tab_debug.png" alt="Launch configuration debug tab"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="icon"><i class="fa fa-arrow-circle-right"></i></span> <a href="cbs_debug_remote.htm">Next: Debugging a remote target</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

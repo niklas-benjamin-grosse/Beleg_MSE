@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.htwdd.e/sf/beleg/Lang"
+			class = "e.htwdd.sf.beleg.lang.LangPackage"
+			genModel = "model/generated/Lang.genmodel" />
+	</extension>
+</plugin>

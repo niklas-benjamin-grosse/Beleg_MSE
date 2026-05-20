@@ -1,0 +1,7 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Generate Lang (s86379s87568) Language Infrastructure,org.eclipse.launchbar.core.descriptorType.default\:Launch Runtime Eclipse,org.eclipse.launchbar.core.descriptorType.default\:Eclipse Application,org.eclipse.launchbar.core.descriptorType.default\:GenerateLang.mwe2
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Generate\ Lang\ (s86379s87568)\ Language\ Infrastructure/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Generate\ Lang\ (s86379s87568)\ Language\ Infrastructure/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

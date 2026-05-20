@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Tutorial: Creating a Managed Build System Makefile project</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_tutorial_creating_a_managed_build_system_makefile_project">Tutorial: Creating a Managed Build System Makefile project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this tutorial, you will use the CDT to create a simple 'Hello World'
+application. This tutorial describes the process of creating a new C&#43;&#43;
+project where the build is automatically managed by the CDT, and running
+the program.</p>
+</div>
+<div class="paragraph">
+<p>To create a simple "Hello World" application using CDT, perform the
+following general steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#cdt_create">Creating a project</a></p>
+</li>
+<li>
+<p><a href="#cdt_build">Reviewing the code and building the project</a></p>
+</li>
+<li>
+<p><a href="#cdt_running">Running the application</a></p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="_step_1_creating_a_project">Step 1: <a id="cdt_create"></a>Creating a project</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select <strong>File &gt; New &gt; Project</strong>.
+<br>
+<span class="image"><img src="../images/cdt_w_basic02.png" alt="Select File &gt; New &gt; Project menu option" width="591" height="183"></span></p>
+</li>
+<li>
+<p>Select the type of project to create. For this tutorial, expand the
+<strong>C/C&#43;&#43;</strong> folder and select <strong>C/C&#43;&#43; Project</strong> and click <strong>Next</strong>.
+<br>
+<span class="image"><img src="../images/cdt_w_basic03a.png" alt="Select project type"></span>
+<br></p>
+</li>
+<li>
+<p>Select <strong>C&#43;&#43; Managed Build</strong> and click <strong>Next</strong>.
+<br>
+<span class="image"><img src="../images/cdt_w_basic03b.png" alt="Select C&#43;&#43; Managed Build"></span>
+<br></p>
+</li>
+<li>
+<p>The <strong>C&#43;&#43; Project</strong> wizard opens.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cdt_w_basic04.png" alt="C&#43;&#43; project wizard" width="525" height="576"></span>
+<br>
+By default, the CDT filters the <strong>Toolchain</strong> and <strong>Project types</strong> that it
+displays in those lists based on the language support for the C&#43;&#43;
+Project wizard you selected for this tutorial.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Project name</strong> field, type a name for the project, such as
+<strong>HelloWorld</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Project type</strong> list, expand <strong>Executable</strong> and select <strong>Hello
+World C&#43;&#43; Project</strong>. This project type provides a simple Hello World
+application in C&#43;&#43;, and the makefile is automatically created by the
+CDT.</p>
+</li>
+<li>
+<p>Select a required toolchain from the <strong>Toolchain</strong> list.</p>
+<div class="paragraph">
+<p>A toolchain is a set of tools (such as a compiler, linker, and
+assembler) intended to build your project. Additional tools, such as a
+debugger, can be associated with a toolchain. There can be several
+toolchains available, depending on the compilers installed on your
+system.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Specify the <strong>Basic Properties</strong> for the new project, such as your
+author, copyright, and source information, then click <strong>Next</strong>.
+<br>
+<span class="image"><img src="../images/cdt_w_basic06a.png" alt="Basic properties of a project" width="525" height="576"></span>
+<br></p>
+</li>
+<li>
+<p>The <strong>Select Configurations</strong> page displays a list of configurations
+based on the project type and toolchain(s) selected earlier.
+<br>
+<span class="image"><img src="../images/cdt_w_basic07.png" alt="Select configurations page" width="525" height="576"></span>
+<br>
+<strong>OPTIONAL</strong>: If you want to change the default project settings, click
+<strong>Advanced Setting</strong> to open the
+<a href="../reference/cdt_u_prop_all.htm">Project Properties</a> dialog for your
+new project allowing you change any of the project specific settings,
+such as includes paths, compiler options, and libraries.
+<br></p>
+</li>
+<li>
+<p>Click <strong>Finish</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>NOTE</strong> If the <strong>C&#43;&#43; perspective</strong> is not currently set as the default, you
+are prompted to determine if you would like to this project to be
+associated with the C/C&#43;&#43; perspective. Click <strong>Yes</strong>.</p>
+</div>
+<div class="paragraph">
+<p>A project is created with the default settings and a full set of
+configurations based on the project type and toolchain you selected. You
+should now see the new project in
+<a href="../reference/cdt_u_project_explorer_view.htm">Project Explorer</a>
+view.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/cdt_w_basic12.png" alt="New project displayed in the Project Explorer view" width="423" height="283"></span></p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_step_2_reviewing_the_code_and_building_the_project">Step 2: <a id="cdt_build"></a>Reviewing the code and building the project</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the <strong>Project Explorer</strong> view, double-click the .cpp file created
+for your project, for example, <span class="typewriter">HelloWorld.cpp</span>. You&#8217;ll
+find it within the project "<span class="typewriter">src</span>" folder.</p>
+<div class="paragraph">
+<p>This file opens in a default editor. It contains C&#43;&#43; template code for
+the Hello World example project you selected earlier. In addition, the
+<a href="../reference/cdt_u_outline_view.htm">Outline</a> view has also been
+populated with objects created from your code.
+<br>
+<span class="image"><img src="../images/cdt_w_basic13.png" alt="C Editor with Outline view" width="731" height="333"></span>
+<br>
+Next, you will need to build your project before you can run it.
+<br></p>
+</div>
+</li>
+<li>
+<p>Build your project by pressing <strong>CTRL+B</strong>, or select the project in the
+<strong>Project Explorer</strong> view and select <strong>Project &gt; Build Project</strong>.</p>
+<div class="paragraph">
+<p><strong>NOTE:</strong> If a build generates any errors or warnings, you can see those
+in the <a href="../reference/cdt_u_problems_view.htm">Problems</a> view. If you
+encounter difficulty, see the topics
+<a href="../concepts/cdt_c_build_over.htm">Building C/C&#43;&#43; projects</a> and
+<a href="../concepts/cdt_c_before_you_begin.htm">Before you begin</a>
+.</p>
+</div>
+</li>
+<li>
+<p>Read through the build messages in the
+<a href="../reference/cdt_u_console_view.htm">Console</a> view. The project
+should build successfully.</p>
+<div class="paragraph">
+<p>You will also see the <strong>Outline</strong> view has also been populated with
+objects created from your code. If you select an item from the <strong>Outline</strong>
+view, the corresponding text in the editor is highlighted.</p>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_step_3_running_the_application">Step 3: <a id="cdt_running"></a>Running the application</h3>
+<div class="paragraph">
+<p>To run your application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Within the C/C&#43;&#43; Perspective, click <strong>Run &gt; Run Configurations&#8230;&#8203;</strong>.</p>
+</li>
+<li>
+<p>Select <strong>C/C&#43;&#43; Application</strong>.</p>
+</li>
+<li>
+<p>Click <strong>New</strong>.</p>
+<div class="paragraph">
+<p>A new Run Configuration is created. Its name and path to the executable
+are provided by the project ('Hello World' in our case).</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Run</strong>.</p>
+<div class="paragraph">
+<p>Now, you should see the Hello World application running in the <strong>Console</strong>
+view. The <strong>Console</strong> also shows which application is running in a title
+bar.</p>
+</div>
+</li>
+<li>
+<p>You can click the other views to see the information that they
+contain.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

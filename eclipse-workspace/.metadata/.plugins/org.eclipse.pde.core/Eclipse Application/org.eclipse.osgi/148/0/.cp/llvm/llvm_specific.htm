@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>LLVM Specific Information</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_llvm_specific_information">LLVM Specific Information</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_project_types">Project types</h3>
+<div class="sect3">
+<h4 id="_executables">Executables</h4>
+<div class="paragraph">
+<p>The executables built with the default settings of an LLVM
+with Clang project are native binaries and can be run and debugged as
+such. However LLVM does also support building programs to LLVM bitcode,
+which in turn can be run with <code>lli</code>, which is the LLVM toolchain&#8217;s
+interpreter/JIT compiler. Unfortunately programs run with <code>lli</code> can not be
+efficiently debugged, since the only (usable) debugging information that
+you can get from them is the backtrace. You can, however, compile the
+bitcode versions of your programs, if you wish (TODO: even though
+running them from Eclipse doesn&#8217;t work at the moment).</p>
+</div>
+<div class="sect4">
+<h5 id="_compiling_to_llvm_bitcode_instead_of_object_code">Compiling to LLVM bitcode instead of object code</h5>
+<div class="paragraph">
+<p>C/C&#43;&#43; source files are compiled to native object code by default. You can compile
+your source files to LLVM bitcode instead of object code by checking the <em>Emit LLVM IR</em>
+checkbox in the Project Properties dialog on the Properties &#8594; C/C&#43;&#43; Build &#8594;
+Settings &#8594; LLVM Clang &#8594; Optimization page.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_shared_and_static_libraries">Shared and static libraries</h4>
+<div class="paragraph">
+<p>The shared and static libraries generated with LLVM plugin are (TODO:
+for now) only LLVM bitcode files linked into one file and therefore
+cannot be used with gcc unless compiled to object code first. These
+libraries can naturally be used when working with the LLVM toolchain and
+on the other hand llvm-ld can use libraries that are object code.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

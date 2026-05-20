@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Before you begin</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_before_you_begin">Before you begin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Depending on how you obtained the CDT, you might have also received a
+toolchain with a built-in CDT integration. However, if you downloaded
+the CDT from the Eclipse web site, then you will require a toolchain
+before you can build and debug any projects.</p>
+</div>
+<div class="paragraph">
+<p>The standard CDT supports integration with the GNU toolchain. This
+includes GNU&#8217;s make, gcc compiler, and gdb debugger utilities. If you
+require a toolchain to build software for your development host, this is
+the best choice to get started.</p>
+</div>
+<div class="paragraph">
+<p>Each platform that runs the CDT requires different steps to acquire this
+toolchain.</p>
+</div>
+<div class="sect2">
+<h3 id="_windows">Windows</h3>
+<div class="paragraph">
+<p>For windows, MinGW and Cygwin are the two main platform choices for
+acquiring the GNU toolchain. It is important to understand the
+difference between them. Cygwin produces executables that use the Cygwin
+POSIX runtime. Note that this runtime is GPL licensed. MinGW produces
+native Windows executables that do not require a separate runtime.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <strong>MinGW</strong>, it is recommended to use the MSYS2 software distribution.
+The CDT will automatically detect tools that are installed using the
+MSYS2 package manager. Download and run the latest MSYS2 installer by
+following instructions on the <a href="https://www.msys2.org/">MSYS2 Getting
+Started</a> page. When you reach the UCRT64 environment prompt, use the
+following commands to install individual tools:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 55.5555%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tool</th>
+<th class="tableblock halign-left valign-top">Installation command</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clang</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-clang</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the <em>LLVM with Clang</em> toolchain</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clangd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-clang-tools-extra</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required by the <em>C/C&#43;&#43; Editor (LSP)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cmake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-cmake</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for building <em>CMake</em> projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gcc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-gcc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the <em>MinGW GCC</em> toolchain</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gdb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-gdb</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for local <em>C/C&#43;&#43; Application</em> debugging using GDB (recommended)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lldb-mi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-lldb-mi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for local <em>C/C&#43;&#43; Application</em> debugging using LLDB (experimental)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S make</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for building <em>Managed Build</em> projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ninja</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pacman -S mingw-w64-ucrt-x86_64-ninja</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for building <em>CMake</em> projects</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Cygwin</strong> can be installed from the Cygwin site at
+<a href="https://www.cygwin.com" class="bare">https://www.cygwin.com</a>. You need to manually select the gcc, gdb, and
+make packages to install the toolchain. Note that there is a
+<a href="https://github.com/eclipse-cdt/cdt/issues/228">known issue</a> with running
+recent versions of Cygwin gdb under the CDT.</p>
+</li>
+<li>
+<p>The <strong>Windows SDK</strong> provides the Visual C&#43;&#43; compiler and header files
+and libraries required to create Windows applications. The CDT Visual
+C&#43;&#43; build integration will find these files based on where you installed
+the SDK. No other setup is required.<br>
+<em>Note:</em> For this release, the integration should be considered beta
+quality. It is not recommended for production use.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linux">Linux</h3>
+<div class="paragraph">
+<p>All Linux distributions include the GNU toolchain. They may not,
+however, be installed by default. For instructions about installing the
+GNU toolchain for Linux, see the instructions for your particular
+distribution.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_macos">macOS</h3>
+<div class="paragraph">
+<p>The CDT supports the <em>Clang</em> toolchain provided by the
+<em>Xcode Command Line Tools</em>. It is recommended to use the Homebrew
+software distribution for any additional tools. The CDT will automatically
+detect tools that are installed using the Homebrew package manager.
+Install Homebrew by following instructions on the <a href="https://brew.sh/">Homebrew</a>
+home page. Then use the following commands at a <em>Terminal</em> prompt to install
+individual tools:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 50%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tool</th>
+<th class="tableblock halign-left valign-top">Installation command</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cmake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>brew install cmake</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for building <em>CMake</em> projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lldb-mi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>brew install cdt-project/tools/lldb-mi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for local <em>C/C&#43;&#43; Application</em> debugging on Apple silicon (you must also install the CDT <em>C/C&#43;&#43; LLDB Debugger Integration</em> feature)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ninja</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>brew install ninja</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required for building <em>CMake</em> projects</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_other_platforms">Other Platforms</h3>
+<div class="paragraph">
+<p>The GNU toolchain is supported on all platforms that the CDT supports.
+For instructions about installing the GNU toolchain on your platform,
+see your platform vendor.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ngref.gif" alt="Related reference" width="143" height="21"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../concepts/cdt_o_home.htm">CDT Home</a><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ngtasks.gif" alt="Related tasks"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../tasks/cdt_t_manualbuild.htm">Building Manually</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>

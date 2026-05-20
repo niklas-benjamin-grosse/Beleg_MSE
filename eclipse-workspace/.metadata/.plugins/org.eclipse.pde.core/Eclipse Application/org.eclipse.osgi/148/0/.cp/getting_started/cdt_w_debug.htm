@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>Debugging a project</title>
+<link rel="stylesheet" href="../helpadoc.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+</head>
+<body class="article">
+<script type="text/javascript" src="PLUGINS_ROOT/org.eclipse.help/livehelp.js"></script>
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_debugging_a_project">Debugging a project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The debugger lets you control the execution of your program by setting
+breakpoints, suspending executed programs, stepping through your code,
+and examining the contents of variables.</p>
+</div>
+<div class="sect2">
+<h3 id="_to_debug_a_project">To debug a project:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <strong>Run &gt; Debug Configurations&#8230;&#8203;</strong> menu option.</p>
+<div class="paragraph">
+<p>The <strong>Debug</strong> <strong>Configurations</strong> dialog opens.
+<br>
+<span class="image"><img src="../images/cdt_w_debug_configurations_01.png" alt="Debug Configurations dialog" width="873" height="662"></span>
+<br></p>
+</div>
+</li>
+<li>
+<p>Double-click <strong>C/C&#43;&#43; Application</strong> to create a new launch
+configuration.
+<br>
+<span class="image"><img src="../images/cdt_w_debug_configurations_02.png" alt="C/C&#43;&#43; Application debug configuration" width="763" height="601"></span>
+<br></p>
+<div class="paragraph">
+<p>If a project is selected in the
+<a href="../reference/cdt_u_project_explorer_view.htm">Project Explorer</a> view
+the following data is automatically entered, take a moment to verify its
+accuracy or change as needed.
+<br></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Name</strong> edit box, type the project name, like <strong>Hello World</strong>.
+<br>
+You can now select this debug launch configuration by name the next time
+that you debug this project.
+<br></p>
+</li>
+<li>
+<p>In the <strong>C/C&#43;&#43; Application</strong> edit box, type the name of the executable
+if its not already entered.
+<br>
+If not, click the <strong>Search Project</strong> button to locate the executable in
+the project.
+<br></p>
+</li>
+<li>
+<p>In the <strong>Project</strong> edit box, type or choose your project, e.g.
+<strong>HelloWorld</strong>.</p>
+<div class="paragraph">
+<p><strong>NOTE</strong> If you see the error "<span class="typewriter">[Debugger]: No debugger
+available</span>", select the <strong>Debugger</strong> tab and choose a valid debugger for
+your platform (e.g. <span class="typewriter">gdb/mi</span>).
+<br></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Debug</strong>.
+<br>
+You may be prompted to switch to the <strong>Debug</strong> perspective. Click <strong>Yes</strong></p>
+<div class="paragraph">
+<p>The <strong>Debug</strong> perspective appears with the <span class="typewriter">helloworld.exe</span>
+application window open. The C/C&#43;&#43; editor repositions in the
+perspective.</p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> If you see the error "<span class="typewriter">Can&#8217;t find source
+file</span>" in the editor view, use the <strong>Locate File</strong> button to locate your
+source file.</p>
+</div>
+</li>
+<li>
+<p>In the left margin of the <span class="typewriter">main.cpp</span> window, double-click
+to set a breakpoint on: <span class="typewriter">cout << "You just entered"</span>
+<br>
+You&#8217;ll see a blue circle
+(<span class="image"><img src="../images/icon_breakpoint_obj.gif" alt="Breakpoint" width="16" height="16"></span>)
+there indicating the breakpoint is set.
+<br></p>
+</li>
+<li>
+<p>Click <strong>Run &gt; Resume</strong>.
+<br>
+Or, you can use the <strong>Resume</strong> button
+(<span class="image"><img src="../images/icon_db_resume.png" alt="Resume" width="19" height="14"></span>) on the
+toolbar of the <strong>Debug</strong> view .
+<br></p>
+</li>
+<li>
+<p>When prompted, in the <strong>Console</strong> view, type a value other than 'm', and
+press Enter.
+<br>
+The breakpoint will be hit.
+<br></p>
+</li>
+<li>
+<p>In the <strong>Variables</strong> view, verify that the variable is not 'm'.</p>
+</li>
+<li>
+<p>Click <strong>Run &gt; Resume</strong>.</p>
+</li>
+<li>
+<p>When prompted, again type a value other than 'm' in the
+<a href="../reference/cdt_u_console_view.htm">Console</a> view, and press Enter.</p>
+<div class="paragraph">
+<p>The breakpoint will be hit.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Variables</strong> view, verify that the variable is not 'm'.</p>
+</li>
+<li>
+<p>In the <strong>Variables</strong> view, right-click the input variable, and select
+<strong>Change Value&#8230;&#8203;</strong> and type <strong>'m'</strong> <em>between the single quotes</em> and hit
+<strong>OK</strong>.
+<br></p>
+</li>
+<li>
+<p>Click <strong>Run &gt; Resume</strong>.</p>
+<div class="paragraph">
+<p>The output in the <span class="typewriter">helloworld.exe</span> application window is:
+"<span class="typewriter">Thank you. Exiting.</span>"</p>
+</div>
+</li>
+<li>
+<p>The application terminates and the debug session ends. The <strong>Debug</strong>
+perspective remains open.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To learn more about debugging, see the related debug conceptual topics.</p>
+</div>
+<div class="paragraph">
+<p><a href="cdt_w_build.htm"><span class="image"><img src="../images/ngback.gif" alt="Back icon" width="16" height="16"></span></a> <strong><a href="cdt_w_build.htm">Back: Building a
+project</a></strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ngconcepts.gif" alt="Related concepts" width="143" height="21"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../concepts/cdt_c_over_dbg.htm">Debug overview</a></p>
+</li>
+<li>
+<p><a href="../concepts/cdt_c_dbg_info.htm">Debug information</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ngtasks.gif" alt="Related tasks" width="143" height="21"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../tasks/cdt_o_debug.htm">Debugging</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ngref.gif" alt="Related reference" width="143" height="21"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../reference/cdt_u_dbg_view.htm">Debug view</a></p>
+</li>
+<li>
+<p><a href="../reference/cdt_u_dbg_view.htm">Debug launch controls</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<hr>
+<p><small>Copyright (c) 2000, 2025 Contributors to the Eclipse Foundation</small></p>
+</body>
+</html>
