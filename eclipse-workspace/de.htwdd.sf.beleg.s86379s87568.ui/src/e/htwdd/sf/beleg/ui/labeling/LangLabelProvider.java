@@ -3,9 +3,15 @@
  */
 package e.htwdd.sf.beleg.ui.labeling;
 
-import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+
+import com.google.inject.Inject;
+
+import e.htwdd.sf.beleg.lang.Gain;
+import e.htwdd.sf.beleg.lang.Goal;
+import e.htwdd.sf.beleg.lang.Userstories;
+import e.htwdd.sf.beleg.lang.Userstory;
 
 /**
  * Provides labels for EObjects.
@@ -15,17 +21,28 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 public class LangLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
-	public LangLabelProvider(AdapterFactoryLabelProvider delegate) {
+	public LangLabelProvider(AdapterFactoryLabelProvider delegate) { 
 		super(delegate);
 	}
 
 	// Labels and icons can be computed like this:
 	
-//	String text(Greeting ele) {
-//		return "A greeting to " + ele.getName();
-//	}
-//
-//	String image(Greeting ele) {
-//		return "Greeting.gif";
-//	}
+	
+	
+	String text(Userstories ele) {
+		return "Userstories";
+	}
+
+	String text(Userstory ele) { 
+	    String label = "Userstory: title= " + ele.getTitle() + " role=" + ele.getRole();
+		return label;
+	} 
+	
+	String text(Goal ele) {
+		return "Goal: " + ele.getWords();
+	} 
+	String text(Gain ele) {
+		return "Gain: " + ele.getWords();
+	} 
+	
 }

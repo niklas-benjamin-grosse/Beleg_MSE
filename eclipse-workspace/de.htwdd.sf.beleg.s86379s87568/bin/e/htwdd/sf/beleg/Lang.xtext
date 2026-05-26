@@ -3,7 +3,16 @@ grammar e.htwdd.sf.beleg.Lang with org.eclipse.xtext.common.Terminals
 generate lang "http://www.htwdd.e/sf/beleg/Lang"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+	Userstories;
+
+Userstories: 
+	userstories+=Userstory+
+;
+
+Userstory: 
+ 	title+=ID+ ':' 'Als' role=ID 'möchte' 'ich' goal=Goal ',' 'um' gain=Gain '.'
+; 
+
+Goal: words+=ID+ ; 
+
+Gain: words+=ID+;
