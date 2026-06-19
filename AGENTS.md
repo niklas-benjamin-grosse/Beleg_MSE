@@ -27,10 +27,50 @@ de.htwdd.sf.beleg.s86379s87568.ui/  → UI-Plugin (Editor, Outline)
 de.htwdd.sf.beleg.s86379s87568.feature/ → Feature für Update-Site
 de.htwdd.sf.beleg.s86379s87568.repository/ → Eclipse Update-Site
 
-runtime-EclipseXtext/ → Laufzeit-Eclipse zum Testen des Editors
+runtime-EclipseXtext/
+  .metadata/      → Eigenes Eclipse-Workspace für die zweite Eclipse-Instanz
+                    (bereits gitignored – nur interne Caches)
+  test/           → Testprojekt in der Runtime-Eclipse
+    src/test.s86379s87568  → Beispiel-DSL-Datei zum Ausprobieren des Editors
+    src/module-info.java   → Leeres Java-Modul (wird von Eclipse benötigt)
+    bin/           → Kompilierte Klassen (nicht committen)
 ```
 
-## Workflow bei Grammatik-Änderung
+## Konzepte & Orientierung
+
+### Wie Xtext funktioniert (das große Ganze)
+
+1. Du schreibst eine **Grammatik** in `Lang.xtext` (wie eine formale Sprache)
+2. Xtext generiert daraus einen **Parser** + **EMF-Modell** (AST = Baumstruktur deiner DSL)
+3. Der generierte Parser liest `.s86379s87568`-Dateien und baut einen Baum aus `Userstory`, `Goal`, `Gain`-Knoten
+4. Du navigierst diesen Baum im **Generator** (`LangGenerator.xtend`) und in **Tests**, um Werte auszulesen
+5. Der Generator produziert eine **XML-Datei** aus dem Baum
+
+### Zwei Eclipse-Instanzen
+
+- **Dev-Eclipse**: Hier schreibst du Code (Grammatik, Generator, Tests). Läuft auf deinem normalen Workspace.
+- **Runtime-Eclipse** (`runtime-EclipseXtext/`): Eine zweite Eclipse-Instanz mit deinen Plug-ins. Du startest sie aus der Dev-Eclipse. Dort siehst du den Editor visuell (Syntax-Highlighting, Outline, Fehler). Wird nur für UI-Tests gebraucht.
+
+### Was die wichtigsten Dateien bedeuten
+
+| Datei | Was ist das? |
+|-------|-------------|
+| `Lang.xtext` | **Grammatik-DSL** – definiert die Syntax deiner User-Story-Sprache |
+| `GenerateLang.mwe2` | **MWE2-Workflow** – baut aus der Grammatik Parser, AST-Modell, Editor-Code |
+| `LangGenerator.xtend` | **Codegenerator** – wandelt geparste User-Stories in XML (oder CSV/JSON) |
+| `LangValidator.java` | **Validierungsregeln** – prüft DSL-Dateien auf Fehler (z.B. leere Titel) |
+| `LangScopeProvider.java` | **Scoping** – definiert Sichtbarkeit von Referenzen zwischen DSL-Elementen |
+| `*.ecore` / `*.genmodel` | Generiertes **EMF-Modell** – beschreibt die AST-Knoten-Typen (`Userstory`, `Goal`, ...) |
+| `src-gen/` | Generierte Java-Klassen (Parser, AST-Impl, Serializer) – **lies sie, ändere sie nie** |
+| `xtend-gen/` | Generiertes Java aus deinen Xtend-Dateien |
+| `*.xtextbin` | Binary-Cache der Grammatik (generiert) |
+| `bin/` | Kompilierte `.class`-Dateien |
+
+### Wie finde ich heraus, was ich in Code nutzen kann?
+
+- **`src-gen/` durchsuchen**: Willst du auf ein `title`-Feld zugreifen? Schau in `src-gen/.../lang/Userstory.java` nach, welche Felder die Klasse hat.
+- **Grammatik lesen**: In `Lang.xtext` siehst du, welche Attribute/Rule-Referenzen es gibt. Jedes `name=ID` erzeugt eine `getName()`-Methode.
+- **Generierten Java-Code lesen**: In `xtend-gen/` oder `src-gen/` steht der echte Java-Code – da siehst du die genauen Typen. Das ist oft klarer als die Xtend/Xtext-Abstraktion.
 
 1. **Lang.xtext** editieren
 2. MWE2-Workflow: `GenerateLang.mwe2` → Run As → MWE2 Workflow
