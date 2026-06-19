@@ -72,6 +72,8 @@ runtime-EclipseXtext/
 - **Grammatik lesen**: In `Lang.xtext` siehst du, welche Attribute/Rule-Referenzen es gibt. Jedes `name=ID` erzeugt eine `getName()`-Methode.
 - **Generierten Java-Code lesen**: In `xtend-gen/` oder `src-gen/` steht der echte Java-Code – da siehst du die genauen Typen. Das ist oft klarer als die Xtend/Xtext-Abstraktion.
 
+## Workflow bei Grammatik-Änderung
+
 1. **Lang.xtext** editieren
 2. MWE2-Workflow: `GenerateLang.mwe2` → Run As → MWE2 Workflow
 3. **JUnit-Tests** laufen lassen (Level 1, ~1s)
@@ -108,7 +110,7 @@ runtime-EclipseXtext/
    ```
    **Niemals** `git add .` oder `git commit -a` – sonst landen Eclipse-Caches und generierte Dateien im Commit.
 4. `git diff --cached` – prüfen ob nur das drin ist, was du willst
-5. `git commit -m "<bereich>: <änderung>"` – z.B. `grammar: add Um variant`
+5. Der Assistent schlägt eine Commit-Nachricht vor, **committet aber nur auf explizite Aufforderung**
 6. `git status && git log --oneline -3` – sieht alles gut aus?
 
 ### Commit-Bereiche (für die Nachricht)
