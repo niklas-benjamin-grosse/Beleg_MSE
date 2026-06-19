@@ -58,11 +58,35 @@ runtime-EclipseXtext/ → Laufzeit-Eclipse zum Testen des Editors
 
 ## Git-Regeln
 
+### Commit-Workflow (immer so)
+
+1. `git status` – welche Dateien sind geändert?
+2. `git diff` – sind die Änderungen korrekt?
+3. **Nur die gewollten Dateien** explizit stagen:
+   ```
+   git add src/.../Lang.xtext src/.../LangGenerator.xtend
+   ```
+   **Niemals** `git add .` oder `git commit -a` – sonst landen Eclipse-Caches und generierte Dateien im Commit.
+4. `git diff --cached` – prüfen ob nur das drin ist, was du willst
+5. `git commit -m "<bereich>: <änderung>"` – z.B. `grammar: add Um variant`
+6. `git status && git log --oneline -3` – sieht alles gut aus?
+
+### Commit-Bereiche (für die Nachricht)
+
+| Bereich | Wann | Beispiel |
+|---------|------|----------|
+| `grammar` | Änderung an `Lang.xtext` | `grammar: support Um-variant syntax` |
+| `generator` | Änderung an `LangGenerator.xtend` | `generator: strip zu from triple-zu verbs` |
+| `validation` | Änderung an `LangValidator.java` | `validation: reject empty title` |
+| `ui` | UI-Plugin (`*.ui/`) | `ui: show terminals in outline` |
+| `tests` | Test-Dateien | `tests: add parsing test for triple zu` |
+| `chore` | Build, Config, `.gitignore` | `chore: add .gitignore for Eclipse metadata` |
+| `docs` | README, AGENTS.md, Doku | `docs: add project overview` |
+
+### Weitere Regeln
+
 - **Nur Hand-Code committen** – niemals `bin/`, `src-gen/`, `xtend-gen/`
-- `git diff --cached` **vor jedem Commit** prüfen
-- Commit-Nachricht: `<bereich>: <änderung>`  
-  z.B. `grammar: add Um variant`, `generator: handle triple zu`
-- **Ein Commit pro logischer Änderung**
+- **Ein Commit pro logischer Änderung** – Grammatik und Generator in separate Commits
 - Nie `--amend` nach Push, nie `--force-push`
 - `git status` und `git log --oneline -5` vor/nach jedem Commit checken
 
