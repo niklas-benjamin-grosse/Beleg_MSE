@@ -1,0 +1,25 @@
+# Eclipse workspace metadata (caches, indexes, logs)
+eclipse-workspace/.metadata/
+
+# Compiled classes
+**/bin/
+**/test-bin/
+
+# Xtext generated Java code
+**/src-gen/
+
+# Xtend generated Java code
+**/xtend-gen/
+
+# Xtext binary grammar cache
+*.xtextbin
+
+# Antlr jars
+.antlr-generator-*.jar
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old project files
+setup.txt
