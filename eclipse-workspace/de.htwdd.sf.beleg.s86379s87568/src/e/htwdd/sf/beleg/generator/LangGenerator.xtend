@@ -12,7 +12,9 @@ class LangGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val stories = (resource.contents.head as Userstories).userstories
-		fsa.generateFile("stories.xml", '''
+		val sourceName = resource.URI.lastSegment
+		val baseName = sourceName.substring(0, sourceName.lastIndexOf('.'))
+		fsa.generateFile(baseName + ".userstories.xml", '''
 			<?xml version="1.0" encoding="UTF-8"?>
 			<userstories>
 				«FOR story : stories»
