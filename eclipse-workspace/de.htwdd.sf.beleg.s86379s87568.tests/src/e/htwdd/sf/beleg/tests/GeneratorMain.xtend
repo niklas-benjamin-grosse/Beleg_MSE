@@ -12,14 +12,12 @@ class GeneratorMain {
 		val generator = injector.getInstance(typeof(IGenerator2))
 
 		val model = parseHelper.parse('''
-
 			Nachricht schicken: Als Koordinator möchte ich Nachrichten verschicken, um Nutzer zu informieren.
 			Themen vergleichen: Als Journalist möchte ich verschiedene Übersichten zu Themen ,um diese zu vergleichen.
 			Geld geben: Als Banker möchte ich mehr Geld erhalten ,um Freunde zu bezuschussen.
-			Paket zurücksenden: Als unzufriedener Kunde möchte ich die Adresse klar einsehen können, um das Paket zurückzusenden.
-			Papier sparen: Als Firmeninhaber möchte ich Geld sparen, um mehr Papier auszudrucken.
-			
+			Paket zurücksenden: Als unzufriedener Kunde möchte ich die Adresse klar einsehen können, um das Paket zurückzusenden. 
 			Dokument drucken: Als Benutzer möchte ich Dokumente drucken, um Berichte auszudrucken.
+			Task hinzufügen: Als Projektleiter möchte ich einen Dialog, um mehrere Tasks einer Person hinzuzufügen.
 			Aufgabe zuweisen: Als Koordinator möchte ich Aufgaben zuweisen, um Arbeit zuzuweisen.
 			Kaffee zuckern: Als Barista möchte ich Kaffee zuckern, um Kaffee zuzuzuckern.
 			Kleidung zupfen: Als Schneider möchte ich Kleidung zupfen, um Stoff zurechtzuzupfen.
