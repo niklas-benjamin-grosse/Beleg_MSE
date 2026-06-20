@@ -1,6 +1,9 @@
 # Eclipse workspace metadata (caches, indexes, logs)
 eclipse-workspace/.metadata/
 
+#runtime eclipse test projects
+runtime-EclipseXtext/
+
 # Compiled classes
 **/bin/
 **/test-bin/
