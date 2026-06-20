@@ -10,15 +10,13 @@ Userstories:
 ;
 
 Userstory: 
- 	title+=ID+ ':' 'Als' role=ID 'möchte' 'ich' goal=Goal ',' 'um' gain=Gain '.'
+ 	title+=ID+ ':' 'Als' role+=ID+ 'möchte' 'ich' goal=Goal ',' 'um' gain=Gain '.'
 ; 
 
 Goal: words+=ID+ ; 
 
 Gain:
-	words+=Word+
-;
+	words+=ID+ ;
 
-Word:
-	zu='zu' | word=ID
-;
+terminal ID: '^'?('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_')
+            ('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_'|'0'..'9')*;
