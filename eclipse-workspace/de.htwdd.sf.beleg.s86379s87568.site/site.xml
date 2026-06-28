@@ -3,7 +3,7 @@
    <description name="Beleg s86379s87568 Software Factories SoSe 2026 HTW Dresden" url="https://www.informatik.htw-dresden.de/~s87568/beleg_mse/">
       Host eclipse Features for Projects during studies at HTW Dresden
    </description>
-   <feature url="features/de.htwdd.sf.beleg.s86379s87568.feature_1.0.0.202606211313.jar" id="de.htwdd.sf.beleg.s86379s87568.feature" version="1.0.0.202606211313">
+   <feature url="features/de.htwdd.sf.beleg.s86379s87568.feature_1.0.0.202606282204.jar" id="de.htwdd.sf.beleg.s86379s87568.feature" version="1.0.0.202606282204">
       <category name="Favorites"/>
    </feature>
    <category-def name="Favorites" label="Favorites Features"/>
