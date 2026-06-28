@@ -3,6 +3,11 @@
  */
 package e.htwdd.sf.beleg.validation;
 
+import org.eclipse.xtext.validation.Check;
+
+import e.htwdd.sf.beleg.lang.Gain;
+import e.htwdd.sf.beleg.lang.InfWithZu;
+import e.htwdd.sf.beleg.lang.LangPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +16,28 @@ package e.htwdd.sf.beleg.validation;
  */
 public class LangValidator extends AbstractLangValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					LangPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	private boolean isValidEmbeddedZu(String verb) {
+		if (verb == null)
+			return false;
+		
+		
+		int pos = verb.lastIndexOf("zu");
+		if (pos == 0 | pos == -1)
+			return false;
+		
+		return true;
+	}
 	
+    @Check
+    public void checkInfWithEmbeddedZuHasEmbeddedZu(InfWithZu inf) {
+    	
+    	String verb = inf.getWith_embedded_zu();
+    	System.out.println(verb);
+    	if (verb == null)
+    		return; 
+    	else if (!isValidEmbeddedZu(verb)) {
+            warning("Das verb muss ein Infinitiv mit \'zu\' sein", 
+                LangPackage.Literals.INF_WITH_ZU__WITH_EMBEDDED_ZU); 
+    	}
+    } 
 }
