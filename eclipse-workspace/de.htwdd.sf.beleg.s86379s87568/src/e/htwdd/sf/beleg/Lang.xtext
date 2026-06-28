@@ -2,21 +2,27 @@ grammar e.htwdd.sf.beleg.Lang with org.eclipse.xtext.common.Terminals
 
 generate lang "http://www.htwdd.e/sf/beleg/Lang"
 
-Model:
-	Userstories;
+UserStories: 
+	userstories+=UserStory+ ;
 
-Userstories: 
-	userstories+=Userstory+
-;
-
-Userstory: 
- 	title+=ID+ ':' 'Als' role+=ID+ 'möchte' 'ich' goal=Goal ',' 'um' gain=Gain '.'
+UserStory: 
+ 	title=Title ':' 'Als' role=WORDS 'möchte' 'ich' goal=WORDS ',' 'um' gain=Gain '.'
 ; 
 
-Goal: words+=ID+ ; 
+Title: subst=WORD inf=WORD;
 
-Gain:
-	words+=ID+ ;
+Gain: context=WORDS? verb=InfWithZu ;
 
-terminal ID: '^'?('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_')
-            ('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_'|'0'..'9')*;
+InfWithZu: ('zu' inf=WORD | with_embedded_zu=WORD);
+
+
+WORDS: WORD+;
+
+// overwrite ID because ÖÄÜ weren't included 
+terminal WORD: ('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_'|'-')
+            ('a'..'z'|'A'..'Z'|'ä'|'ö'|'ü'|'ß'|'Ä'|'Ö'|'Ü'|'_'|'-')*; 
+            
+            
+            
+            
+            

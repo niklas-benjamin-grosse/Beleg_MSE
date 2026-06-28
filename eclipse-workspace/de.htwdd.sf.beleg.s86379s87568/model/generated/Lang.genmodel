@@ -6,21 +6,26 @@
     complianceLevel="17.0" copyrightFields="false" runtimeVersion="2.36">
   <genPackages prefix="Lang" basePackage="e.htwdd.sf.beleg" disposableProviderFactory="true"
       fileExtensions="s86379s87568" ecorePackage="Lang.ecore#/">
-    <genClasses ecoreClass="Lang.ecore#//Model"/>
-    <genClasses ecoreClass="Lang.ecore#//Userstories">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//Userstories/userstories"/>
+    <genClasses ecoreClass="Lang.ecore#//UserStories">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//UserStories/userstories"/>
     </genClasses>
-    <genClasses ecoreClass="Lang.ecore#//Userstory">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Userstory/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Userstory/role"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//Userstory/goal"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//Userstory/gain"/>
+    <genClasses ecoreClass="Lang.ecore#//UserStory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//UserStory/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//UserStory/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//UserStory/goal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//UserStory/gain"/>
     </genClasses>
-    <genClasses ecoreClass="Lang.ecore#//Goal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Goal/words"/>
+    <genClasses ecoreClass="Lang.ecore#//Title">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Title/subst"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Title/inf"/>
     </genClasses>
     <genClasses ecoreClass="Lang.ecore#//Gain">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Gain/words"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//Gain/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Lang.ecore#//Gain/verb"/>
+    </genClasses>
+    <genClasses ecoreClass="Lang.ecore#//InfWithZu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//InfWithZu/inf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Lang.ecore#//InfWithZu/with_embedded_zu"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
