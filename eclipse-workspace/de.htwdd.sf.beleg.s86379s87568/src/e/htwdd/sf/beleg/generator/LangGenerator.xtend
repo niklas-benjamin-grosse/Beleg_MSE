@@ -4,14 +4,15 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import e.htwdd.sf.beleg.lang.Userstories
-import e.htwdd.sf.beleg.lang.Userstory
+import e.htwdd.sf.beleg.lang.UserStories
+import e.htwdd.sf.beleg.lang.UserStory
 import org.eclipse.emf.common.util.EList
+import e.htwdd.sf.beleg.lang.InfWithZu
 
 class LangGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val stories = (resource.contents.head as Userstories).userstories
+		val stories = (resource.contents.head as UserStories).userstories
 		val sourceName = resource.URI.lastSegment
 		val baseName = sourceName.substring(0, sourceName.lastIndexOf('.'))
 		fsa.generateFile(baseName + ".userstories.xml", '''
@@ -24,32 +25,27 @@ class LangGenerator extends AbstractGenerator {
 		''')
 	}
 
-	def toXml(Userstory story) '''
+	def toXml(UserStory story) '''
 		<userstory>
-			<title>«story.title.join(" ")»</title>
-			<role>«story.role.join(" ")»</role>
-			<goal>«story.goal.words.join(" ")»</goal>
-			<gain>«story.gain.words.nutzenText»</gain>
+			<title>«story.title.subst» «story.title.inf»</title>
+			<role>«story.role»</role>
+			<goal>«story.goal»</goal>
+			<gain>«story.gain.context === null ? "" : story.gain.context» «story.gain.verb.toInfinitive»</gain>
 		</userstory>
 	'''
 
 	// Extrahiert Object und infinitiv ohne zu
-	def nutzenText(EList<String> words) {
-		val obj = 
-			if (words.size >= 2 && words.get(words.size - 2) == "zu")
-				words.subList(0, words.size - 2).join(" ")
+	def toInfinitive(InfWithZu verb) { 
+		val infinitive = 
+			if (verb.inf !== null)	
+				verb.inf
 			else
-				words.subList(0, words.size - 1).join(" ")
-		
-		val verb = 
-			if (words.size >= 2 && words.get(words.size - 2) == "zu")
-				words.last
-			else
-				words.last.verbOhneZu
-		'''«obj» «verb»'''
+				verb.with_embedded_zu.verbWithoutZu 
+				
+		'''«infinitive»'''
 	}
 
-	def verbOhneZu(String verb) {
+	def verbWithoutZu(String verb) {
 		val idx = verb.lastIndexOf("zu")
 		if (idx >= 0) verb.substring(0, idx) + verb.substring(idx + 2)
 		else verb
