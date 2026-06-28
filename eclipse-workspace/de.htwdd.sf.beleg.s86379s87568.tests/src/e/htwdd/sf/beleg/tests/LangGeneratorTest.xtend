@@ -1,7 +1,6 @@
 package e.htwdd.sf.beleg.tests
 
 import com.google.inject.Inject
-import e.htwdd.sf.beleg.lang.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -10,12 +9,13 @@ import org.eclipse.xtext.generator.InMemoryFileSystemAccess
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import e.htwdd.sf.beleg.lang.UserStories
 
 @ExtendWith(InjectionExtension)
 @InjectWith(LangInjectorProvider)
 class LangGeneratorTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<UserStories> parseHelper
 
 	@Inject
 	IGenerator2 generator
