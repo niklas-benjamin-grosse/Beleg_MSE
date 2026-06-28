@@ -9,9 +9,10 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import com.google.inject.Inject;
 
 import e.htwdd.sf.beleg.lang.Gain;
-import e.htwdd.sf.beleg.lang.Goal;
-import e.htwdd.sf.beleg.lang.Userstories;
-import e.htwdd.sf.beleg.lang.Userstory;
+import e.htwdd.sf.beleg.lang.InfWithZu;
+import e.htwdd.sf.beleg.lang.Title;
+import e.htwdd.sf.beleg.lang.UserStories;
+import e.htwdd.sf.beleg.lang.UserStory;
 
 /**
  * Provides labels for EObjects.
@@ -27,22 +28,45 @@ public class LangLabelProvider extends DefaultEObjectLabelProvider {
 
 	// Labels and icons can be computed like this:
 	
+	private String toInfinitive(InfWithZu verb) {
+		if (verb.getInf() != null)
+			return verb.getInf();
+		else {
+			return verbWithoutZu(verb.getWith_embedded_zu());
+		}
+	}
 	
-	
-	String text(Userstories ele) {
+	private String verbWithoutZu(String verb) { 
+		String withoutZu = null;
+		final int idx = verb.lastIndexOf("zu");
+		if ((idx >= 0)) {
+			String prefix = verb.substring(0, idx);
+			String suffix = verb.substring((idx + 2)); 
+			withoutZu = prefix + suffix;
+		} 
+		return withoutZu;
+	}
+
+
+	String text(UserStories ele) {
 		return "Userstories";
 	}
 
-	String text(Userstory ele) { 
-	    String label = "Userstory: title= " + ele.getTitle() + " role=" + ele.getRole();
+	String text(UserStory ele) { 
+	    String label = "Userstory";
 		return label;
 	} 
 	
-	String text(Goal ele) {
-		return "Goal: " + ele.getWords();
-	} 
+	String text(Title ele) {
+		String label = "Title";
+		return label;
+	}
+	
 	String text(Gain ele) {
-		return "Gain: " + ele.getWords();
+		return "Gain";
 	} 
 	
+	String text(InfWithZu ele) {
+		return "infinitiv: " + toInfinitive(ele);
+	}
 }
